@@ -1,15 +1,23 @@
-﻿namespace XelaTech.Modelos
+﻿using System;
+
+namespace XelaTech.Modelos
 {
     public class ComputadoraEscritorio : Equipo
     {
-        public bool EsGamer { get; set; }
+        public string FactorForma { get; set; }
 
-        public ComputadoraEscritorio(string codigoInterno, string numeroSerie, string marca, string modelo, Cliente propietario, string estadoFisico, string accesorios, bool esGamer)
-            : base(codigoInterno, numeroSerie, marca, modelo, propietario, "Computadora Escritorio", estadoFisico, accesorios)
+        public ComputadoraEscritorio(string codigo, string serie, string marca, string modelo, Cliente propietario, string estado, string accesorios, string factorForma)
+            : base(codigo, serie, marca, modelo, propietario, estado, accesorios, "Computadora de Escritorio")
         {
-            EsGamer = esGamer;
+            FactorForma = factorForma;
         }
 
-        public override double CalcularCostoRevision() => EsGamer ? 100.00 : 60.00;
+        public ComputadoraEscritorio(string codigo, string serie, string marca, string modelo, Cliente propietario, string estado, string accesorios, bool esGamer)
+            : base(codigo, serie, marca, modelo, propietario, estado, accesorios, "Computadora de Escritorio")
+        {
+            FactorForma = esGamer ? "Gamer / Torre" : "Estándar";
+        }
+
+        public override double CalcularCostoRevision() => 90.00;
     }
 }

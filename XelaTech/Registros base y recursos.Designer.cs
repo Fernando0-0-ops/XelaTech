@@ -56,8 +56,6 @@
             label1.TabIndex = 0;
             label1.Text = "REGISTRO BASE Y RECURSOS";
             label1.TextAlign = ContentAlignment.TopCenter;
-
-
             // 
             // button1
             // 
@@ -200,6 +198,8 @@
             Cursor = Cursors.Hand;
             Name = "Registros_base_y_recursos";
             Text = "Registros_base_y_recursos";
+            Activated += Registros_base_y_recursos_Activated;
+            Load += Registros_base_y_recursos_Load;
             pnlMenu.ResumeLayout(false);
             pnlMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)Logo).EndInit();

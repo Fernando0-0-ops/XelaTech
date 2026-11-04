@@ -1,13 +1,21 @@
-﻿namespace XelaTech.Modelos
+﻿using System;
+
+namespace XelaTech.Modelos
 {
     public class ComputadoraPortatil : Equipo
     {
-        public bool IncluyeCargador { get; set; }
+        public bool TieneBateriaDañada { get; set; }
 
-        public ComputadoraPortatil(string codigoInterno, string numeroSerie, string marca, string modelo, Cliente propietario, string estadoFisico, string accesorios, bool incluyeCargador)
-            : base(codigoInterno, numeroSerie, marca, modelo, propietario, "Computadora Portátil", estadoFisico, accesorios)
+        public ComputadoraPortatil(string codigo, string serie, string marca, string modelo, Cliente propietario, string estado, string accesorios, bool bateriaDañada)
+            : base(codigo, serie, marca, modelo, propietario, estado, accesorios, "Computadora Portátil")
         {
-            IncluyeCargador = incluyeCargador;
+            TieneBateriaDañada = bateriaDañada;
+        }
+
+        public ComputadoraPortatil(string codigo, string serie, string marca, string modelo, Cliente propietario, string estado, string accesorios, string bateriaDañadaStr)
+            : base(codigo, serie, marca, modelo, propietario, estado, accesorios, "Computadora Portátil")
+        {
+            TieneBateriaDañada = bool.TryParse(bateriaDañadaStr, out bool res) && res;
         }
 
         public override double CalcularCostoRevision() => 75.00;

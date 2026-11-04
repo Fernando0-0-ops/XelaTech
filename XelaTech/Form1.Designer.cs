@@ -159,6 +159,7 @@
             button4.TabIndex = 3;
             button4.Text = "Salida";
             button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click;
             // 
             // label3
             // 
@@ -254,6 +255,8 @@
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
+            FormClosing += Form1_FormClosing;
+            Load += Form1_Load_1;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
